@@ -1,0 +1,23 @@
+{% load static %}
+{% block title %}
+<h1 style="background-color: blue; color: #ffffff;"><center>USER PROFILE</center></h1>
+{% endblock %}
+{% block content %}
+<div class="container" style="background-color: #ecf0f1; padding: 20px;">
+    <div class="row" >
+{% if user_details %}
+        <center>
+        <p>Username: {{ user_details.username }}</p>
+        <p>Name:  {{ user_details.first_name }} {{ user_details.last_name }}</p>
+        <p>Email: {{ user_details.email }}</p>
+    {% else %}
+        <p>You need to log in to view your profile.</p>
+    {% endif %}
+            </center>
+    </div>
+
+    <a href="{% url 'moviessapp:home' %}">HOME</a>
+     &nbsp;<a href="{% url 'moviessapp:updateprofile' %}" ><button class="btn btn-warning">UPDATE</button></a>
+    &nbsp;<a href="{% url 'moviessapp:deleteprofile' %}" ><button class="btn btn-danger">DELETE</button></a>
+</div>
+{% endblock %}

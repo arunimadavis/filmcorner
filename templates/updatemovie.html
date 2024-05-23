@@ -1,0 +1,12 @@
+{% load static %}
+{% block title %}
+<h1 style="background-color: #FFA500; color: #ffffff;"><center> UPDATE PROFILE</center></h1>
+{% endblock %}
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ forms.as_p }}
+        <button type="submit">Update Movie</button>
+    </form>
+
+{% endblock %}

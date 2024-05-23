@@ -1,0 +1,77 @@
+<nav class="main_nav" style="margin-top: 40px;">
+  <ul class="nav justify-content-center">
+    {% if user.is_authenticated %}
+    <li> <b>Welcome-</b><a href="{% url 'moviessapp:userprofile' %}"><b><i class="fa-solid fa-user">&nbsp; {{user.username}} </i></b></a></li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'moviessapp:logout' %}"><b>LOG OUT</b></a>
+  </li>
+    {% else %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'moviessapp:register' %}"><b>REGISTER</b></a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link " href="{% url 'moviessapp:login' %}"><b>LOG IN</b></a>
+  </li>
+    {% endif %}
+</ul>
+</nav>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-info" style="margin-top: 40px;" data-bs-theme="dark">
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'moviessapp:home' %}"><b>HOME</b></a>
+      </li>
+      <li class="nav-item dropdown ">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <b>FILMS</b>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="{% url 'moviessapp:home' %}">All Movies</a></li>
+          {% for cat in category_list %}
+                <li><a class="dropdown-item" href="{{ cat.get_absolute_url }}">{{ cat.name }} </a></li>
+          {% endfor %}
+        </ul>
+      </li>
+    </ul>
+    {% if user.is_authenticated %}
+    <a class="nav-link" href="{% url 'moviessapp:add'  %}" ><button class="btn btn-primary">ADD MOVIES</button></a>
+    <a class="nav-link" href="{% url 'moviessapp:addcategory'  %}" ><button class="btn btn-primary">ADD CATEGORY</button></a>
+    {% endif %}
+    <form class="form-inline my-3 my-lg-0" action="{% url 'moviessapp:searchresult' %}" method="get">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" name="q"   aria-label="Search">
+      <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </form>
+  </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

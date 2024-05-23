@@ -1,0 +1,13 @@
+{% load static %}
+{% block title %}
+<h1 style="background-color: #000000; color: #ffffff;"><center> DELETE PROFILE</center></h1>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <p>Are you sure you want to delete your profile?</p>
+    <form method="POST">
+    {% csrf_token %}
+        <button type="submit">Delete </button>
+</form>
+</div>
+{% endblock %}

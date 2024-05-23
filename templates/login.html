@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LOGIN</title>
+</head>
+<body bgcolor="#ADD8E6">
+<h2><center>LOG IN </center> </h2>
+<form action="" method="post"><center>
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="ENTER YOUR USERNAME"><br>
+    <br>
+    <input type="password" name="password" placeholder="ENTER YOUR PASSWORD"><br>
+    <br>
+    <input type="submit">
+</center>
+</form>
+ <a href="{% url 'moviessapp:register' %}"><B>REGISTER</B></a>
+{% for e in messages %}
+<h2><center>{{e}}</center></h2>
+{% endfor %}
+</body>
+</html>

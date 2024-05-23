@@ -1,0 +1,13 @@
+{% load static %}
+{% block title %}
+<h1 style="background-color: #FFA500; color: #ffffff;"><center> UPDATE PROFILE</center></h1>
+{% endblock %}
+{% block content %}
+<div class="container ">
+    <form method="post" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Profile</button>
+    </form>
+</div>
+{% endblock %}

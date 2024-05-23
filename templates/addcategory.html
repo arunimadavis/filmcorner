@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    Add CATEGORY
+{% endblock %}
+{% block title %}
+    ADD NEW category
+{% endblock %}
+{% block content %}
+<form method="POST" style="margin-top: 40px;">
+        {% csrf_token %}
+        <label for="category_name">Category Name:</label>
+        <input type="text" id="category_name" name="category_name" required>
+
+        <button type="submit">Add Category</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load static %}
+{% block title %}
+<h1 style="background-color: #800000; color: #ffffff;"><center> NOT THE USER</center></h1>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <center><p>{{ message }}</p>
+        <a href="{% url 'moviessapp:home' %}">Back to Home</a>
+    </center></div>
+{% endblock %}

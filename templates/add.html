@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block metadescription %}
+    Adding new movie
+{% endblock %}
+{% block title %}
+    ADD NEW MOVIE
+{% endblock %}
+{% block content %}
+<form method="POST" enctype="multipart/form-data" style="margin-top: 40px;">
+    {% csrf_token %}
+    <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required>
+
+        <label for="poster">Poster:</label>
+        <input type="file" id="poster" name="poster" accept="image/*" required>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+
+        <label for="release_date">Release Date:</label>
+        <input type="date" id="release_date" name="release_date" required>
+
+        <label for="actors">Actors:</label>
+        <input type="text" id="actors" name="actors" required>
+
+        <label for="category">Category:</label>
+        <select  id="category" name="category" required>
+            {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+            {% endfor %}</select>
+
+        <label for="trailer_link">Trailer Link:</label>
+        <input type="url" id="trailer_link" name="trailer_link" required>
+
+        <label for="added_by">Added By:</label>
+        <input type="text" id="added_by" name="added_by" required>
+
+        <button type="submit">Add Movie</button>
+</form>
+{% endblock %}
